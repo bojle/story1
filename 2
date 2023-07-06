@@ -1,0 +1,9 @@
+M4's behaviour can be mystifying. It is best to get an early understanding of
+how it works. This should save you time figuring out what's going on when it
+doesn't do what you expect.
+
+First, m4 looks for tokens in its input – roughly speaking, it divides it into
+quoted strings, macro arguments, names (i.e., identifiers), numbers and other
+symbols (punctuation characters). Whitespace (including newlines), numbers and
+punctuation usually mark token boundaries; exceptions are when they appear
+within a quoted string or a macro argument.

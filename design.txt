@@ -1,0 +1,51 @@
+# Usage
+
+gcc main.c -o main
+./main
+
+# What is it
+
+- Textual Storytelling
+- interactive
+- key based inputs
+- a series of slides that make a chapter
+- each chapter has with it a tone (can be implicit (no sound) or explicit
+  (attached with a sound)
+- on 'next', play next chapter with its tone
+
+
+# Architecture
+
+These are the elements: chapter, tone, story, input event
+
+## chapter
+
+- ncurses (to clear screen and put the cursor at the top)
+- 80 character output
+- each chapter has a correspondign base64 enc strign, decode it, and print
+- play the tone for current chapter
+
+## tone
+
+- the story has a tone map
+- tone_map[total_chapters]
+- tone_map[0] = {base64 enc of contained audio}
+
+
+## story 
+
+for (int i = 0; i < total_chapters; ++i) {
+	play_chapter(i, chapter_list, tone_map);
+}
+
+## input event
+
+- the music player needs to be non-blocking (asyncrhonous), for if it isn't how
+  would input events be registered when we're waiting for the music to finish
+- the interface: h -> back, l -> forward
+
+
+## music
+
+- klettur - sigur ros
+- 
